@@ -1,0 +1,15 @@
+server:
+port: 8080
+spring:
+  thymeleaf:
+    cache: false
+    encoding: utf-8
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    #springboot上传限制问题
+  servlet:
+    multipart:
+      enabled: true #是否启用http上传处理
+      max-file-size: 100MB #设置单个文件最大长度
+      max-request-size: 100MB #最大请求文件的大小

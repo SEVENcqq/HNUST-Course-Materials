@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>course_update</title>
+    <link href="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.js"></script>
+    <!--<script type="text/javascript" th:src="@{/static/js/jquery-1.7.2.js}"></script>-->
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .container {
+        width: 100vw;
+        height: 100vh;
+        /*background: url(/static/imgs/背景14.jpg) no-repeat center center;*/
+        display: flex; /*想要登录框居中，则需要此层采用弹性布局 */
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+      }
+      .update {
+        width: 800px;
+        height: 500px;
+        border-left: 2px solid rgba(255, 255, 255, 0.7); /*边框颜色*/
+        border-top: 2px solid rgba(255, 255, 255, 0.7);
+        border-radius: 20px; /*边框弧度*/
+        backdrop-filter: blur(10px); /*模糊度*/
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8); /*盒子边框阴影*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .txtbox > * {
+        display: block;
+      }
+      .txtbox input {
+        width: 300px;
+        height: 50px;
+        outline: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border: 0;
+        font-size: 16px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        background-color: #fff;
+      }
+      /*.txtbox input[type="submit"] {*/
+      #sub{
+        color: #fff;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.4);
+        margin-bottom: 50px;
+      }
+      .txtbox span {
+        /*错误提示errorMsg*/
+        font-size: 20px;
+        position: relative;
+        bottom: 32px;
+        left: 180px;
+        color: orangered;
+      }
+      #return{
+          color: #4f20b5;
+      }
+      #cImg {
+          width: 290px;
+          height: 230px;
+      }
+
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+        <div class="container">
+            <div class="update">
+                <form th:action="@{'/courseImgUp/' + ${course.cid} }" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="cname" th:value="${course.cname}">
+                    <input type="hidden" name="hours" th:value="${course.hours}">
+                    <input type="hidden" name="schools" th:value="${course.schools}">
+
+                    <input type="hidden" name="spageNum" th:value="${spageNum}">
+                    <input type="hidden" name="sid" th:value="${sid}">
+                    <input type="hidden" name="cpageNum" th:value="${cpageNum}">
+                    <input type="hidden" name="username" th:value="${username}">
+
+                    <div style="margin-right: 35px;margin-bottom: -50px">
+                        <div class="ui card">
+                            <div class="image">
+                                <!--<img th:src="@{'/img/course/' + ${course.cpath} }" onerror="this.src='/img/背景14.jpg'; this.onerror=null;" alt="找不到" width="150" height="100">-->
+                                <img id="cImg" th:src="'/course/' + ${course.cpath}" onerror="this.src='/static/imgs/暂无图片.jpeg'; this.onerror=null;" alt="找不到">
+                            </div>
+                            <div class="content">
+                                <div class="header">课程描述</div>
+                                <!--<div class="description">
+                                    一些乱七八糟的课程描述
+                                </div>-->
+                                <textarea name="cinf" th:text="${course.cinf}" style="width: 260px;height: 50px"></textarea>
+                            </div>
+
+                            <!--<div class="ui two bottom attached buttons">
+                                <input type="hidden" name="cid" th:value="${course.cid}">
+                                <input id="file" type="file" name="photo" style="display: none">
+                                <button id="sel" class="ui button" onclick="file.click()">
+                                    <i class="add icon"></i>
+                                    选择文件
+                                </button>
+                                <input type="submit" class="ui primary button" th:value="上传">
+                                    <i class="arrow up icon"></i>
+                                </input>
+                            </div>-->
+                            <div class="ui two bottom attached buttons">
+                                <input type="hidden" name="cid" th:value="${course.cid}">
+                                <input id="file" type="file" name="photo" style="display: none">
+                                <input id="sel" type="button" class="ui button" value="选择文件" onclick="file.click()"/>
+                                <input id="up" type="submit" class="ui primary button" th:value="上传">
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+
+
+
+                <form th:action="@{'/updateCourse/' + ${cpageNum} + '/' + ${cn} + '/' + ${sid} + '/' + ${spageNum} + '/' + ${username} }" method="post" class="ui form">
+                    <input type="hidden" name="cid" th:value="${course.cid}">
+                    <input type="hidden" name="cpageNum" th:value="${cpageNum}">
+                    <input type="hidden" name="cn" th:value="${cn}">
+                    <input type="hidden" name="spageNum" th:value="${spageNum}">
+                    <input type="hidden" name="sid" th:value="${sid}">
+
+                    <input type="hidden" name="cpath" th:value="${course.cpath}">
+                    <input type="hidden" name="cinf" th:value="${course.cinf}">
+
+                    <div class="txtbox">
+                      <div style="margin-top: 50px">
+                          <h1 class="ui header"><i class="eraser icon"></i>修改课程信息</h1>
+                      </div>
+                      <h4 class="ui dividing header" th:text="${msg}" style="color: orangered">&nbsp;</h4>
+                      <div style="float: right">
+                        <a id="return" th:href="@{'/getCourseBySid/' + ${spageNum} + '/' + ${sid} + '/' + ${cpageNum} + '/' + ${username} }">返回课程表</a>
+                      </div>
+                        <div class="grouped fields">
+                          <div class="field">
+                              <label>课程名</label>
+                              <div class="ui large icon input">
+                                  <input type="text" name="cname" placeholder="name" th:value="${course.cname}">
+                                  <i class="bookmark icon"></i>
+                              </div>
+                          </div>
+                          <div class="field">
+                              <label>课时</label>
+                              <div class="ui large icon input">
+                                  <input type="text" name="hours" placeholder="hour" th:value="${course.hours}">
+                                  <i class="time icon"></i>
+                              </div>
+                          </div>
+                          <div class="field">
+                              <label>所属学院号</label>
+                              <div class="ui large icon input">
+                                  <input type="text" name="schools" placeholder="school" th:value="${course.schools}">
+                                  <i class="home icon"></i>
+                              </div>
+                          </div>
+                      </div>
+                      <div>
+                          <input id="sub" type="submit" value="提交"/>
+                      </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>

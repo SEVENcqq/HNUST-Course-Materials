@@ -1,0 +1,263 @@
+{
+  "id": "cb0f21b1-28ff-4312-bfe1-d36ec63023a6",
+  "version": "2.0",
+  "name": "project1",
+  "url": "http://www.hnust.edu.cn",
+  "tests": [{
+    "id": "78a2430b-7a05-4886-af0d-6d7cbbc1095d",
+    "name": "selenium_test1",
+    "commands": [{
+      "id": "25317c7c-1367-46a4-bab2-de97216120f3",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7e1a4a7e-c9c4-4261-b598-40dbc1d339bc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x878",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "864df932-f92c-40e7-a551-8992dd3ca7c3",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//nav[@id='nav']/ul/li/a/strong",
+      "targets": [
+        ["css=.on strong", "css:finder"],
+        ["xpath=//nav[@id='nav']/ul/li/a/strong", "xpath:idRelative"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'学校概况')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e33e56f-41d5-47a9-854d-a75ef821192b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=学校标识",
+      "targets": [
+        ["linkText=学校标识", "linkText"],
+        ["css=.subLeft li:nth-child(2) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'学校标识')])[3]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '../xxbs/index.htm')])[3]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1051ea80-3286-4c8c-8be0-f1e368982b5e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=校训",
+      "targets": [
+        ["linkText=校训", "linkText"],
+        ["css=.active dd:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'校训')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '../xx/index.htm')]", "xpath:href"],
+        ["xpath=//aside/ul/li[2]/dl/dd[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'校训')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ebf36661-236c-4135-bb44-31f691be1dfe",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=现任领导",
+      "targets": [
+        ["linkText=现任领导", "linkText"],
+        ["css=.subLeft li:nth-child(3) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'现任领导')])[3]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '../../xrld/index.htm')])[3]", "xpath:href"],
+        ["xpath=//aside/ul/li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a54121a6-c628-42a4-ba7d-fd5116ddc18d",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(1) > .item-txt01 strong",
+      "targets": [
+        ["css=li:nth-child(1) > .item-txt01 strong", "css:finder"],
+        ["xpath=//h3/a/strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'刘德顺 ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "10fe514f-b1fc-47d3-ba94-16dca61418fb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=组织机构",
+      "targets": [
+        ["linkText=组织机构", "linkText"],
+        ["css=.subLeft li:nth-child(4) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'组织机构')])[3]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '../zzjg/index.htm')])[3]", "xpath:href"],
+        ["xpath=//aside/ul/li[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "150af020-8f65-4e18-bca1-ce6f3956b531",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=校园风光",
+      "targets": [
+        ["linkText=校园风光", "linkText"],
+        ["css=.subLeft li:nth-child(5) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'校园风光')])[3]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '../xyfg/index.htm')])[3]", "xpath:href"],
+        ["xpath=//aside/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "17c0e446-5ddf-4cf2-af1f-a830aa779f6a",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(1) h3",
+      "targets": [
+        ["css=li:nth-child(1) h3", "css:finder"],
+        ["xpath=//a/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'楼群')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "90991d6b-5483-499c-9486-071db0cadbf8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=园林",
+      "targets": [
+        ["linkText=园林", "linkText"],
+        ["css=.active dd:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'园林')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '../yl/index.htm')]", "xpath:href"],
+        ["xpath=//aside/ul/li[5]/dl/dd[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'园林')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1cafb3c8-2841-4321-9578-c880d224a27e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=设施",
+      "targets": [
+        ["linkText=设施", "linkText"],
+        ["css=.active dd:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'设施')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '../ss/index.htm')]", "xpath:href"],
+        ["xpath=//aside/ul/li[5]/dl/dd[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'设施')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "f28e7f81-0a04-43fe-a70c-84792e052e5d",
+    "name": "selenium_test2",
+    "commands": [{
+      "id": "e9ed60c7-5edc-4770-b6d6-85c556b7e99c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9f5ba7b7-9df4-43b2-b3d2-f1d461bbf58b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x878",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ea6f2d58-aa6d-451d-bd3a-4ed5fa876ae4",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//nav[@id='nav']/ul/li[6]/a/strong",
+      "targets": [
+        ["css=.on strong", "css:finder"],
+        ["xpath=//nav[@id='nav']/ul/li[6]/a/strong", "xpath:idRelative"],
+        ["xpath=//li[6]/a/strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'校园生活')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "78b369a3-3c60-4c4d-ac86-26615fae73f6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=学生组织",
+      "targets": [
+        ["linkText=学生组织", "linkText"],
+        ["css=.subLeft li:nth-child(1) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'学生组织')])[3]", "xpath:link"],
+        ["xpath=(//a[@href='http://tw.hnust.edu.cn'])[3]", "xpath:href"],
+        ["xpath=//aside/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6d8d4a8-5520-4177-8f36-8dec83c680aa",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=组织机构",
+      "targets": [
+        ["linkText=组织机构", "linkText"],
+        ["css=.has-sub:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'组织机构')]", "xpath:link"],
+        ["xpath=//nav[@id='main-nav']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'zzjg/index.htm')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'组织机构')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e03a7431-6dc6-45e8-8669-93c08cf24945",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=团委简介",
+      "targets": [
+        ["linkText=团委简介", "linkText"],
+        ["css=#user-menu > .current-menu-item > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'团委简介')])[2]", "xpath:link"],
+        ["xpath=//ul[@id='user-menu']/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'index.htm')])[25]", "xpath:href"],
+        ["xpath=//div/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20ea4483-0318-4eec-8c91-f7fbbeeef39b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=机构人员",
+      "targets": [
+        ["linkText=机构人员", "linkText"],
+        ["css=#user-menu > li:nth-child(2) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'机构人员')])[2]", "xpath:link"],
+        ["xpath=//ul[@id='user-menu']/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '../jgry/index.htm')])[2]", "xpath:href"],
+        ["xpath=//div/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9193390f-621f-45b5-a12c-20dce0c56241",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=部门简介",
+      "targets": [
+        ["linkText=部门简介", "linkText"],
+        ["css=#user-menu > li:nth-child(3) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'部门简介')])[2]", "xpath:link"],
+        ["xpath=//ul[@id='user-menu']/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '../bmjj/index.htm')])[2]", "xpath:href"],
+        ["xpath=//div/ul/li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "9433798f-161f-4143-9049-51a924792b38",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://www.hnust.edu.cn/"],
+  "plugins": []
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hnust.mapper.SchoolMapper">
+
+    <!--List<School> getAllSchool();-->
+    <resultMap id="getAllSchoolMap" type="School">
+        <id column="sid" property="sid"></id>
+        <result column="school_name" property="sname"></result>
+        <!--<collection property="courses" ofType="Course">
+            <id column="cid" property="cid"></id>
+            <result column="cname" property="cname"></result>
+            <result column="hours" property="hours"></result>
+            <result column="schools" property="schools"></result>
+        </collection>-->
+    </resultMap>
+    <select id="getAllSchool" resultMap="getAllSchoolMap">
+        select * from s_school
+    </select>
+
+    <!--select * from s_school-->
+
+    <!--select * from s_school, c_course
+    where s_school.sid = c_course.schools-->
+
+    <!--School getCourseBySid();-->
+    <resultMap id="getSchoolBySidMap" type="School">
+        <id column="sid" property="sid"></id>
+        <result column="school_name" property="sname"></result>
+        <collection property="courses" ofType="Course">
+            <id column="cid" property="cid"></id>
+            <result column="cname" property="cname"></result>
+            <result column="hours" property="hours"></result>
+            <result column="schools" property="schools"></result>
+        </collection>
+    </resultMap>
+    <select id="getSchoolBySid" resultMap="getSchoolBySidMap">
+        select * from s_school, c_course
+        where s_school.sid = c_course.schools and sid = #{sid}
+    </select>
+
+    <!--List<Course> getCourseBySid(@Param("schools") Integer schools);-->
+    <select id="getCourseBySid" resultType="Course">
+        select * from c_course where schools = #{schools}
+    </select>
+
+</mapper>

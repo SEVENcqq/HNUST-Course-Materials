@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #63a4ff, #83eaf1);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .dashboard {
+            background-color: rgba(255, 255, 255, 1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            margin: 15px 0;
+            color: #555;
+        }
+
+        #currentTime {
+            font-size: 16px;
+            font-weight: bold;
+            color: #0072ff;
+        }
+
+        .logout-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logout-link a {
+            color: #0072ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Welcome!</h1>
+        <p>You are now logged in to the Student Management System.</p>
+        <p>Explore and manage student information with ease.</p>
+
+        <!-- 添加一个元素用于显示实时时间 -->
+        <p id="currentTime"></p>
+
+        <div class="logout-link">
+            <a href="http://127.0.0.1:8000/login.html">Logout</a>
+        </div>
+    </div>
+
+    <script>
+        // 获取元素
+        var currentTimeElement = document.getElementById("currentTime");
+
+        // 更新实时时间
+        function updateCurrentTime() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            // 格式化时间
+            var formattedTime = padZero(hours) + ":" + padZero(minutes) + ":" + padZero(seconds);
+
+            // 更新显示
+            currentTimeElement.innerHTML = "Current Time: " + formattedTime;
+        }
+
+        // 补零函数，确保小时、分钟、秒都是两位数
+        function padZero(number) {
+            return number < 10 ? "0" + number : number;
+        }
+
+        // 初始更新一次时间
+        updateCurrentTime();
+
+        // 每秒更新一次时间
+        setInterval(updateCurrentTime, 1000);
+    </script>
+</body>
+</html>

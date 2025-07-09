@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring_mvc_demo" />
+        <module name="chapter09" />
+        <module name="test1Plus" />
+        <module name="chapter07" />
+        <module name="chapter08" />
+        <module name="spring_mvc_ajax" />
+        <module name="ssm" />
+        <module name="chapter06" />
+        <module name="test1" />
+        <module name="chapter03" />
+        <module name="spring_mvc_rest" />
+        <module name="chapter12" />
+        <module name="chapter02-1" />
+        <module name="chapter13" />
+        <module name="chapter10" />
+        <module name="test2" />
+        <module name="chapter11" />
+        <module name="chapter02-2" />
+        <module name="chapter02-3" />
+        <module name="mybatis_mbg" />
+        <module name="spring_ioc_xml" />
+        <module name="spring_ioc_annotation" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="1" target="1.8" />
+      <module name="1 (1)" target="1.8" />
+      <module name="1 (2)" target="1.8" />
+      <module name="chapter02-3 (1)" target="1.8" />
+      <module name="chapter02-3 (2)" target="1.8" />
+      <module name="chapter02.2" target="1.8" />
+      <module name="controller" target="1.8" />
+      <module name="spring_mvc_rest (1)" target="1.8" />
+      <module name="spring_mvc_rest (2)" target="1.8" />
+      <module name="test2Plus" target="1.8" />
+      <module name="untitled" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

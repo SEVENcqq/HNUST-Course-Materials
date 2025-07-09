@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1>这是首页！！！</h1>
+<a th:href="@{/test/success}">测试标注在类上</a><br/>
+<a th:href="@{/test/a}">测试多个value值</a><br/>
+<a th:href="@{/test/success2}">测试method属性1</a><br/>
+<form th:action="@{test/success3}" method="post">
+    <input type="submit" value="测试method属性2">
+</form>
+<form th:action="@{test/success4}" method="get">
+    <input type="submit" value="测试method属性3以及header属性">
+</form><br/>
+<a th:href="@{/test/success5(id)}">测试params属性</a><br/>
+</body>
+</html>

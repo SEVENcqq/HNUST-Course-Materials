@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>index.html</h1>
+
+<form th:action="@{/param}" method="post">
+    用户名：<input type="text" name="username"><br>
+    密码：<input type="text" name="password"><br>
+    <input type="submit" value="登录"><br>
+</form>
+
+<hr>
+<a th:href="@{/test/mav}">测试modelandview</a><br>
+<a th:href="@{/test/model}">测试model</a><br>
+<a th:href="@{/test/modelMap}">测试modelMap</a><br>
+<a th:href="@{/test/map}">测试map</a><br>
+<hr>
+<a th:href="@{/test/session}">测试会话域</a><br>
+<a th:href="@{/test/application}">测试应用域</a><br>
+<hr>
+<a th:href="@{/test/view/thymeleaf}">测试thymeleaf</a><br>
+<a th:href="@{/test/view/forward}">测试forward</a><br>
+<a th:href="@{/test/view/redirect}">测试redirect</a><br>
+</body>
+</html>

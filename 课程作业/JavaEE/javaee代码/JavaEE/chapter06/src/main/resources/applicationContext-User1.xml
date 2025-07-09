@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user1" class="com.itheima.User1">
+        <constructor-arg name="id" value="7"></constructor-arg>
+        <constructor-arg name="name" value="cqq"></constructor-arg>
+        <constructor-arg name="password" value="7777777"></constructor-arg>
+    </bean>
+</beans>

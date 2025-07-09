@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="test.TestFactory" time="0" tests="0" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.class.path" value="D:\CompileSoftware\JAVA\IDEA\IDEAworkspace\JavaeeCourse\chapter07\target\test-classes;D:\CompileSoftware\JAVA\IDEA\IDEAworkspace\JavaeeCourse\chapter07\target\classes;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-core\5.2.8.RELEASE\spring-core-5.2.8.RELEASE.jar;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-jcl\5.2.8.RELEASE\spring-jcl-5.2.8.RELEASE.jar;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-beans\5.2.8.RELEASE\spring-beans-5.2.8.RELEASE.jar;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-context\5.2.8.RELEASE\spring-context-5.2.8.RELEASE.jar;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-expression\5.2.8.RELEASE\spring-expression-5.2.8.RELEASE.jar;C:\Users\陈琪琪\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-aop\5.2.8.RELEASE\spring-aop-5.2.8.RELEASE.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\陈琪琪\AppData\Local\Temp\surefire3865233407693804843\surefirebooter-20230304190828298_6.jar C:\Users\陈琪琪\AppData\Local\Temp\surefire3865233407693804843 2023-03-04T19-08-27_276-jvmRun1 surefire-20230304190828298_4tmp surefire_1-20230304190828298_5tmp"/>
+    <property name="surefire.test.class.path" value="D:\CompileSoftware\JAVA\IDEA\IDEAworkspace\JavaeeCourse\chapter07\target\test-classes;D:\CompileSoftware\JAVA\IDEA\IDEAworkspace\JavaeeCourse\chapter07\target\classes;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-core\5.2.8.RELEASE\spring-core-5.2.8.RELEASE.jar;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-jcl\5.2.8.RELEASE\spring-jcl-5.2.8.RELEASE.jar;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-beans\5.2.8.RELEASE\spring-beans-5.2.8.RELEASE.jar;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-context\5.2.8.RELEASE\spring-context-5.2.8.RELEASE.jar;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-expression\5.2.8.RELEASE\spring-expression-5.2.8.RELEASE.jar;C:\Users\陈琪琪\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\陈琪琪\.m2\repository\org\springframework\spring-aop\5.2.8.RELEASE\spring-aop-5.2.8.RELEASE.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\陈琪琪"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre"/>
+    <property name="basedir" value="D:\CompileSoftware\JAVA\IDEA\IDEAworkspace\JavaeeCourse\chapter07"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\陈琪琪\AppData\Local\Temp\surefire3865233407693804843\surefirebooter-20230304190828298_6.jar"/>
+    <property name="sun.boot.class.path" value="D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\lib\resources.jar;D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\lib\rt.jar;D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\lib\sunrsasign.jar;D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\lib\jsse.jar;D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\lib\jce.jar;D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\lib\charsets.jar;D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\lib\jfr.jar;D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_171-b11"/>
+    <property name="user.name" value="cqq"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\陈琪琪\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\陈琪琪\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2022.1.2"/>
+    <property name="java.version" value="1.8.0_171"/>
+    <property name="user.dir" value="D:\CompileSoftware\JAVA\IDEA\IDEAworkspace\JavaeeCourse\chapter07"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\bin\;C:\Program Files\Java\jdk1.8.0_171\bin;D:\CompileSoftware\VM\bin\;D:\MySQL\mysql5.5\bin;C:\Program Files (x86)\MySQL\MySQL Server 5.5\bin;D:\MySQL\MySQL Server 8.0\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;d:\eda\quartus\bin;D:\MySQL\mysql install\bin;D:\CompileSoftware\JAVA\maven\apache-maven-3.9.0\bin;D:\CompileSoftware\JAVA\IDEA\IntelliJ IDEA Community Edition 2022.1.2\plugins\nodejs\;D:\编译软件\Python\Scripts\;D:\编译软件\Python\;C:\Users\陈琪琪\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Tencent\QQGameTempest\Hall.57821\;D:\CompileSoftware\JAVA\IDEA\IntelliJ IDEA Community Edition 2022.1.2\bin;;C:\Users\陈琪琪\AppData\Roaming\npm;D:\CompileSoftware\VScode\Microsoft VS Code\bin;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.171-b11"/>
+    <property name="java.ext.dirs" value="D:\CompileSoftware\JAVA\Java\jdk1.8.0_171\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+</testsuite>

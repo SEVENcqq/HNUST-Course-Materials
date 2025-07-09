@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "3edfc266-8450-4962-884c-543bf0761b21",
+		"name": "Postman接口关联",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19623084"
+	},
+	"item": [
+		{
+			"name": "查询天气接口",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json()\r",
+							"var city = jsonData.weatherinfo.city\r",
+							"pm.globals.set(\"glb_city\", city)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.weather.com.cn/data/sk/101010100.html",
+					"protocol": "http",
+					"host": [
+						"www",
+						"weather",
+						"com",
+						"cn"
+					],
+					"path": [
+						"data",
+						"sk",
+						"101010100.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "百度搜索接口",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.baidu.com/S?wd={{glb_city}}",
+					"protocol": "http",
+					"host": [
+						"www",
+						"baidu",
+						"com"
+					],
+					"path": [
+						"S"
+					],
+					"query": [
+						{
+							"key": "wd",
+							"value": "{{glb_city}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "csv文件格式请求",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data.sp).to.equal(jsonData.data.sp);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://cx.shouji.360.cn/phonearea.php?number={{mobile}}",
+					"protocol": "http",
+					"host": [
+						"cx",
+						"shouji",
+						"360",
+						"cn"
+					],
+					"path": [
+						"phonearea.php"
+					],
+					"query": [
+						{
+							"key": "number",
+							"value": "{{mobile}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

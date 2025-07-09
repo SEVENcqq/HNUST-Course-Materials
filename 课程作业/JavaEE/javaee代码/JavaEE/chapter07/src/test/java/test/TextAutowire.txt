@@ -1,0 +1,1 @@
+该部分的代码放置在chapter06的resources文件夹下面的applicationContext-Service.xml文件中

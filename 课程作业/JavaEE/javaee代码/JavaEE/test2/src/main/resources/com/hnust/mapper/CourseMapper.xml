@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hnust.mapper.CourseMapper">
+    <!--// 查询所有课程
+    List<Course> getAllCourse();-->
+    <select id="getAllCourse" resultType="Course">
+        select * from c_course
+    </select>
+
+    <!--// 根据课程提示语搜索相关课程信息
+    List<Course> searchCourse(Course course);-->
+    <select id="searchCourse" resultType="Course">
+        select * from c_course
+        <where>
+            <if test="cid != null and cid != ''">
+                and cid = #{cid}
+            </if>
+            <if test="cname != null and cname != ''">
+                and cname = #{cname}
+            </if>
+            <if test="hours != null and hours != ''">
+                and hours = #{hours}
+            </if>
+        </where>
+    </select>
+
+    <!--// 根据课程id获得课程信息
+    Course getCourseByCid(@Param("cid") Integer cid);-->
+    <select id="getCourseByCid" resultType="Course">
+        select * from c_course where cid = #{cid}
+    </select>
+
+    <!--// 根据课程名获取课程信息
+    Course getCourseByCname(@Param("cname") String cname);-->
+    <select id="getCourseByCname" resultType="Course">
+        select * from c_course where cname = #{cname}
+    </select>
+
+    <!--// 根据课程id修改课程信息
+    void updateCourse(Course course);-->
+    <update id="updateCourse">
+        update c_course set cname = #{cname}, hours = #{hours}, schools = #{schools} where cid = #{cid}
+    </update>
+
+    <!--// 根据课程id删除课程信息
+    void deleteCourseByCid(Integer cid);-->
+    <delete id="deleteCourseByCid">
+        delete from c_course where cid = #{cid}
+    </delete>
+
+    <!--// 添加课程信息
+    void addCourse(Course course);-->
+    <insert id="addCourse">
+        insert into c_course values (null , #{cname} , #{hours} , #{schools} , null , null)
+    </insert>
+
+    <!--// 保存课程其他信息
+    void saveCinfo(Cinfo cinfo);-->
+    <update id="saveCinfo">
+        update cinfo set cpath = #{cpath}, cinf = #{cinf} where cid = #{cid}
+    </update>
+
+    <!--// 获得Cinfo的数据信息
+    Cinfo getCinfoByCid(Integer cid);-->
+    <select id="getCinfoByCid" resultType="Cinfo">
+        select * from cinfo where cid = #{cid}
+    </select>
+
+    <!--// 修改课程图片路径和课程简介
+    void updateCourseImgByCid(@Param("cpath") String cpath, @Param("cinf") String cinf, @Param("cid") Integer cid);-->
+    <update id="updateCourseImgByCid">
+        update c_course set cpath = #{cpath}, cinf = #{cinf} where cid = #{cid}
+    </update>
+
+</mapper>

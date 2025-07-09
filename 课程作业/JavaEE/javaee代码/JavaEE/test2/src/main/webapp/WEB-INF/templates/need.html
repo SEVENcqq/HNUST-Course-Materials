@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>need</title>
+</head>
+  <link href="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+  <script type="text/javascript" src="../../static/js/jquery-1.7.2.js"></script>
+  <script src="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.js"></script>
+
+  <style>
+    .f{
+      margin-left: 15px;
+      margin-top: 10px;
+      margin-right: 15px;
+    }
+  </style>
+
+<body>
+
+<!--增加，修改课程表-->
+  <div class="ui tiny modal">
+    <div class="header">添加课程</div>
+    <div class="f">
+      <div class="ui form">
+        <div class="three fields">
+          <div class="field">
+            <label>课程名</label>
+            <input type="text" placeholder="name">
+          </div>
+          <div class="field">
+            <label>课时</label>
+            <input type="text" placeholder="hours">
+          </div>
+          <div class="field">
+            <label>所属学院号</label>
+            <input type="text" placeholder="schools">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui submit positive basic button">
+        <i class="check icon"></i>提交
+      </div>
+      <div class="ui cancel negative basic button">
+        <i class="close icon"></i>取消
+      </div>
+    </div>
+  </div>
+
+<button id="add"  class="ui teal basic button" >增加</button>
+
+
+<div class="ui right labeled input">
+  <input type="text" placeholder="根据提示搜索...">
+  <div class="ui dropdown label">
+    <div class="text"></div>
+    <i class="dropdown icon">课程号</i>
+    <div class="menu">
+      <div class="item">课程号</div>
+      <div class="item">课程名</div>
+      <div class="item">课时</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function(){
+    $("#add").click(function(){
+      var result = $('.ui.tiny.modal').modal('show');
+    });
+  });
+</script>
+
+</body>
+</html>

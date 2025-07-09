@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hnust.mapper.UserMapper">
+<!--// 登录界面验证环节
+User queryUserByEmailAndPassword(User user);-->
+<select id="queryUserByEmailAndPassword" resultType="User">
+    select * from t_user where email = #{email} and password = #{password}
+</select>
+
+<!--// 保存用户注册信息
+void saveUser(User user);-->
+<insert id="saveUser">
+    insert into t_user values (#{email}, #{password}, #{username})
+</insert>
+
+<!--// 根据邮箱获得用户信息
+User getUserByEmail(String email);-->
+<select id="getUserByEmail" resultType="User">
+    select * from t_user where email = #{email}
+</select>
+
+</mapper>

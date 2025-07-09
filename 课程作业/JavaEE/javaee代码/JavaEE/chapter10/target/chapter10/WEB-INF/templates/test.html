@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<h1>test.html</h1>
+<a th:href="@{/test2}">测试SpringMVC</a><!--这一部分只在原路径的基础上加上一个路径-->
+<br/>
+<a href="/test2">测试绝对路径</a><!--这个的最终呈现的路径为“http://localhost:8088/test2”-->
+</body>
+</html>

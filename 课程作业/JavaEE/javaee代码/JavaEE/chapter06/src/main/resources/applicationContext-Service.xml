@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl"></bean>
+    <!--<bean id="userService" class="com.itheima.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"></property>
+    </bean>-->
+
+    <!--自动装配-->
+    <bean id="userService" class="com.itheima.service.impl.UserServiceImpl" autowire="byName"></bean>
+</beans>

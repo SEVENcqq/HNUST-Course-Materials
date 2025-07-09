@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>add</title>
+    <link href="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../../static/js/jquery-1.7.2.js"></script>
+    <script src="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.js"></script>
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .container {
+        width: 100vw;
+        height: 100vh;
+        /*background: url(/static/imgs/背景14.jpg) no-repeat center center;*/
+        display: flex; /*想要登录框居中，则需要此层采用弹性布局 */
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+      }
+      .add {
+        width: 450px;
+        height: 500px;
+        border-left: 2px solid rgba(255, 255, 255, 0.7); /*边框颜色*/
+        border-top: 2px solid rgba(255, 255, 255, 0.7);
+        border-radius: 20px; /*边框弧度*/
+        backdrop-filter: blur(10px); /*模糊度*/
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8); /*盒子边框阴影*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .txtbox > * {
+        display: block;
+      }
+      .txtbox input {
+        width: 300px;
+        height: 50px;
+        outline: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border: 0;
+        font-size: 16px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        background-color: #fff;
+      }
+      .txtbox input[type="submit"] {
+        color: #fff;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.4);
+        margin-bottom: 50px;
+      }
+      .txtbox span {
+        /*错误提示errorMsg*/
+        font-size: 20px;
+        position: relative;
+        bottom: 32px;
+        left: 180px;
+        color: orangered;
+      }
+      #return{
+          color: #4f20b5;
+      }
+
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+    <input type="hidden" name="sid" th:value="${sid}">
+    <input type="hidden" name="spageNum" th:value="${spageNum}">
+    <form th:action="@{'/addCourse/' + ${cpages} + '/' + ${cpageNum} + '/' + ${sid} + '/' + ${spageNum} + '/' + ${username} }" method="post" class="ui form">
+        <div class="container">
+            <div class="add">
+                <div class="txtbox">
+                  <div style="margin-top: 50px">
+                      <h1 class="ui header"><i class="edit icon"></i>添加课程信息</h1>
+                  </div>
+                  <h4 class="ui dividing header" th:text="${msg}" style="color: orangered">&nbsp;</h4>
+                  <div style="float: right;">
+                    <a id="return" th:href="@{'/getCourseBySid/' + ${spageNum} + '/' + ${sid} + '/' + ${cpageNum} + '/' + ${username} }">返回课程表</a>
+                  </div>
+                  <div class="grouped fields">
+                      <div class="field">
+                          <label>课程名</label>
+                          <div class="ui large icon input">
+                              <input type="text" name="cname" placeholder="name">
+                              <i class="bookmark icon"></i>
+                          </div>
+                      </div>
+                      <div class="field">
+                          <label>课时</label>
+                          <div class="ui large icon input">
+                              <input type="text" name="hours" placeholder="hour">
+                              <i class="time icon"></i>
+                          </div>
+                      </div>
+                      <div class="field">
+                          <label>所属学院号</label>
+                          <div class="ui large icon input">
+                              <input type="text" name="schools" placeholder="school">
+                              <i class="home icon"></i>
+                          </div>
+                      </div>
+                  </div>
+                  <div>
+                      <input type="submit" value="提交"/>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

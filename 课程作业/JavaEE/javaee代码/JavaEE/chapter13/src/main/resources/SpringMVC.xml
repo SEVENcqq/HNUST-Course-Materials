@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="com.hnust.controller"></context:component-scan>
+
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/templates/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>-->
+    <!--注解驱动-->
+    <mvc:annotation-driven/>
+    <!--配置静态资源的访问路径，此配置中的文件将不被前端控制器拦截-->
+    <mvc:resources mapping="/js/**" location="/js/"/>
+    <!--注入SimpleMappingExceptionResolver-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!--定义需要特殊处理的异常，用类名或完全路径名作为key，对应的异常页面名作为值，
+        将不同的异常映射到不同的界面-->
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.NullPointerException">nullPointerExp.jsp</prop>
+                <prop key="IOException">IOExp.jsp</prop>
+            </props>
+        </property>
+        <!--为所有的异常定义默认的异常处理页面，value为默认的异常处理页面-->
+        <property name="defaultErrorView" value="defaultExp.jsp"></property>
+        <!--value定义在异常处理页面中获取的异常信息变量名，默认名为exception-->
+        <property name="exceptionAttribute" value="exp"></property>
+    </bean>
+    <!--拦截器的配置-->
+   <!-- <mvc:interceptors>
+        &lt;!&ndash;拦截所有请求&ndash;&gt;
+        &lt;!&ndash;<bean class="com.hnust.interceptor.MyInterceptor"/>
+        <bean class="com.hnust.interceptor.MyInterceptor2"/>&ndash;&gt;
+        <bean class="com.hnust.interceptor.LoginInterceptor"/>
+        &lt;!&ndash;拦截指定路径下的请求&ndash;&gt;
+        &lt;!&ndash;<mvc:interceptor>
+            &lt;!&ndash;这里的代码书写顺序必须按照以下顺序执行&ndash;&gt;
+            &lt;!&ndash;配置拦截器作用的路径&ndash;&gt;
+            <mvc:mapping path="/**"/>
+            &lt;!&ndash;配置不需要拦截器作用的路径&ndash;&gt;
+            <mvc:exclude-mapping path=""/>
+            &lt;!&ndash;对匹配路径的请求才进行拦截&ndash;&gt;
+            <bean class="com.hnust.interceptor.MyInterceptor2"/>
+        </mvc:interceptor>&ndash;&gt;
+    </mvc:interceptors>-->
+    <mvc:interceptors>
+        <bean class="com.hnust.interceptor.LoginInterceptor"/>
+    </mvc:interceptors>
+</beans>

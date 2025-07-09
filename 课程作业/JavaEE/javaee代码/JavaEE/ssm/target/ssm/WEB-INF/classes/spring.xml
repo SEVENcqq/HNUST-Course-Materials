@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--扫描组件(除控制层)-->
+    <context:component-scan base-package="com.hnust.ssm">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--引入jdbc.properties-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!--配置数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--开启事务的注解驱动，将使用注解@Transactional标识的方法或类中的所有方法进行事务管理-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!--配置SqlSessionFactoryBean，可以直接在spring的ioc中获取SqlSessionFactory-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--设置mybatis-config的核心配置文件的路径-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!--设置数据源-->
+        <property name="dataSource" ref="dataSource"></property>
+        <!--设置类型别名所对应的包-->
+        <property name="typeAliasesPackage" value="com.hnust.ssm.pojo"></property>
+        <!--全局配置，对应驼峰转换-->
+        <property name="configurationProperties">
+            <props>
+                <prop key="mapUnderscoreToCamelCase" >true</prop>
+            </props>
+        </property>
+        <!--配置分页插件-->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor"></bean>
+            </array>
+        </property>
+        <!--配置映射文件路径(使用场景：当mapper接口与其映射文件的包不一致时，需要设置路径，如果一致可以不设置)-->
+        <!--<property name="mapperLocations" value="classpath:mappers/*.xml"></property> -->
+    </bean>
+
+    <!--配置Mapper接口的扫描，负责扫描Mapper接口，作用：通过指定包下面所有的Mapper接口，通过上面SqlSessionFactory创建的
+    SqlSession来创建这些Mapper接口的代理实现类对象，然后交给ioc容器管理 (①也可以理解成test1中直接先创建好Mapper对象，
+    即xxxMapper = sqlSession.getMapper(xxxMapper.class)，然后便于直接调用这些对象的方法；②也可以理解成自动装配dao层；
+    ③这里的mapper指mapper接口，如果路径相同，这无需配置映射文件路径，路径不相同，则需说明，利用上述方法解决)-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.hnust.ssm.mapper"></property>
+    </bean>
+
+
+</beans>

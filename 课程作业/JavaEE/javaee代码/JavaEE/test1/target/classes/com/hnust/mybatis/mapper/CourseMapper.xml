@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hnust.mybatis.mapper.CourseMapper">
+
+    <!--Course selectCourseById(Integer cid);-->
+    <select id="selectCourseById" resultType="Course">
+        select * from c_course where cid = #{cid}
+    </select>
+
+    <!--void updateCourseById(Integer id, Integer hours);-->
+    <update id="updateCourseById">
+        update c_course set hours = #{hours}
+        where cid = #{cid}
+    </update>
+
+    <!--void insertCourse(Course course);-->
+    <insert id="insertCourse">
+        insert into c_course values (#{cid} , #{cname} , #{hours} , #{schools} , #{cpath} , #{cinf})
+    </insert>
+</mapper>

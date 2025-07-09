@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hnust.mybatis.mapper.DeptMapper">
+
+    <!--
+        处理一对多的映射关系
+        1.Collection
+        2.分布查询
+    -->
+
+    <!--Dept getEmpAndDeptByStepTwo(@Param("deptId") Integer deptId);-->
+    <select id="getEmpAndDeptByStepTwo" resultType="Dept">
+        select * from t_dept where dept_id = #{deptId}
+    </select>
+
+
+    <!--Dept getDeptAndEmpByDeptId(@Param("deptId") Integer deptId);-->
+    <resultMap id="DeptAndEmpResultMap" type="Dept">
+        <id column="dept_id" property="deptId"></id>
+        <result column="dept_name" property="deptName"></result>
+        <collection property="emps" ofType="Emp">
+            <id column="emp_id" property="empId"></id>
+            <result column="emp_name" property="empName"></result>
+            <result column="age" property="age"></result>
+            <result column="gender" property="gender"></result>
+        </collection>
+    </resultMap>
+
+   <!-- <select id="getDeptAndEmpByDeptId" resultMap="DeptAndEmpResultMap">
+        select * from t_dept left join t_emp on t_dept.dept_id = t_emp.dept_id where t_dept.dept_id = #{deptId}
+    </select>-->
+
+    <select id="getDeptAndEmpByDeptId" resultMap="DeptAndEmpResultMap">
+        select * from t_dept , t_emp where t_dept.dept_id = t_emp.dept_id and t_dept.dept_id = #{deptId}
+    </select>
+
+    <!--Dept getDeptAndEmpByStepOne(@Param("deptId") Integer deptId);-->
+    <resultMap id="deptAndEmpByStepResultMap" type="Dept">
+        <id column="dept_id" property="deptId"></id>
+        <result column="dept_name" property="deptName"></result>
+        <collection property="emps" column="dept_id"
+                    select="com.hnust.mybatis.mapper.EmpMapper.getDeptAndEmpByStepTwo">
+        </collection>
+    </resultMap>
+
+
+    <select id="getDeptAndEmpByStepOne" resultMap="deptAndEmpByStepResultMap">
+        select * from t_dept where dept_id = #{deptId}
+    </select>
+
+</mapper>

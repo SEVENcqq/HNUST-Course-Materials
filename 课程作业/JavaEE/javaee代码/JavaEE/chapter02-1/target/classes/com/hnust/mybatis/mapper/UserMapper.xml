@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hnust.mybatis.mapper.UserMapper">
+
+    <!--MyBatis中可以面向接口操作数据，要保证两个一致
+    - mapper接口的全类名和映射文件的命名空间（namespace）保持一致
+    - mapper接口中方法的方法名和映射文件中编写SQL的标签的id属性保持一致-->
+
+    <!--此部分相当于众多表中的一张表-->
+
+    <!--int insertUser();-->
+    <insert id="insertUser">
+        insert into t_user values(1,'cqq','1234567',20,'女','1302466947@qq.com')
+    </insert>
+
+   <!-- void updateUser();-->
+    <update id="updateUser">
+        update t_user set username='root',password=123 where id = 3
+    </update>
+
+    <!--void deleteUser();-->
+    <delete id="deleteUser">
+        delete from t_user where id = 3
+    </delete>
+
+    <!--User getUserById();-->
+    <!--
+        resultType：设置结果类型，即查询的数据要转换为Java类型
+        resultMap：自定义映射，处理多对一或一对多的映射关系
+    -->
+    <select id="getUserById" resultType="com.hnust.mybatis.pojo.User">
+        select * from t_user where id = 1
+    </select>
+
+    <!--List<User> getAllUser();-->
+    <select id="getAllUser" resultType="User">
+        select * from t_user
+    </select>
+</mapper>

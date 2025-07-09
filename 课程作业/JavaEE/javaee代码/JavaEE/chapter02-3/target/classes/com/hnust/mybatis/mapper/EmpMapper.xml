@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hnust.mybatis.mapper.EmpMapper">
+
+    <!--
+        若字段名和实体类中的属性名不一致，但是字段名符合数据库的规则（使用_），
+        实体类中的属性名符合Java的规则（使用驼峰）。此时也可通过以下两种方式处理字段名和实体类中的属性的映射关系
+            1.可以通过为字段起别名的方式，保证和实体类中的属性名保持一致
+            2.可以在MyBatis的核心配置文件中的`setting`标签中，设置一个全局配置信息mapUnderscoreToCamelCase，
+            可以在查询表中数据时，自动将_类型的字段名转换为驼峰，例如：字段名user_name，
+            设置了mapUnderscoreToCamelCase，此时字段名就会转换为userName。
+            3.使用resultMap自定义映射
+     -->
+
+    <!--
+        处理多对一映射关系
+        1.级联方式处理映射关系
+        2.使用association处理映射关系
+        3.分步查询(多表查询的主要方法，重点掌握)
+    -->
+
+    <!--
+    resultMap：设置自定义映射
+    - 属性：
+        - id：表示自定义映射的唯一标识，不能重复
+        - type：查询的数据要映射的实体类的类型
+    - 子标签：
+        - id：设置主键的映射关系
+        - result：设置普通字段的映射关系
+    - 子标签属性：
+        - property：设置映射关系中实体类中的属性名
+        - column：设置映射关系中表中的字段名
+     -->
+
+    <resultMap id="empResultMap" type="Emp">
+        <id column="emp_id" property="empId"></id>
+        <result column="emp_name" property="empName"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+    </resultMap>
+
+    <!--Emp getEmpByEmpId(@Param("empId") Integer empId);-->
+    <!--select emp_id empId,emp_name empName,age,gender from t_emp where emp_id = #{empId};-->
+    <select id="getEmpByEmpId" resultMap="empResultMap">
+        select * from t_emp where emp_id = #{empId};
+    </select>
+
+    <!-- <select id="getEmpByEmpId" resultType="Emp">
+        select * from t_emp where emp_id = #{empId};
+    </select>-->
+
+
+    <!--Emp getEmpAndDeptByEmpId(@Param("empId") Integer empId);-->
+    <!--<resultMap id="empAndDeptResultMap" type="Emp">
+        <id column="emp_id" property="empId"></id>
+        <result column="emp_name" property="empName"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+        <result column="dept_id" property="dept.deptId"></result>
+        <result column="dept_name" property="dept.deptName"></result>
+    </resultMap>-->
+
+    <resultMap id="empAndDeptResultMap" type="Emp">
+        <id column="emp_id" property="empId"></id>
+        <result column="emp_name" property="empName"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+        <association property="dept" javaType="Dept">
+            <id column="dept_id" property="deptId"></id>
+            <result column="dept_name" property="deptName"></result>
+        </association>
+    </resultMap>
+
+    <select id="getEmpAndDeptByEmpId" resultMap="empAndDeptResultMap">
+        select t_emp.*,t_dept.*
+        from t_emp left join t_dept
+        on t_emp.dept_id = t_dept.dept_id
+        where t_emp.emp_id = #{empId}
+    </select>
+
+
+    <!--Emp getEmpAndDeptByStepOne(@Param("eid") Integer eid);-->
+    <resultMap id="empAndDeptByStepResultMap" type="Emp">
+        <id column="emp_id" property="empId"></id>
+        <result column="emp_name" property="empName"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+        <!--
+            property:设置需要处理映射关系的属性的属性名
+            select:设置分布查询的sql的唯一标识
+            column:将查询出的某个字段作为分布查询的sql的条件
+            fetchType:在开启了延迟加载的环境中，设置当前的分步查询是否使用延迟加载，lazy(延迟加载)|eager(立即加载)
+        -->
+        <association property="dept"
+                     select="com.hnust.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo"
+                     column="dept_id">
+        </association>
+    </resultMap>
+
+    <select id="getEmpAndDeptByStepOne" resultMap="empAndDeptByStepResultMap">
+        select * from t_emp where emp_id = #{empId}
+    </select>
+
+    <!--Emp getDeptAndEmpByStepTwo(@Param("empId") Integer empId);-->
+    <select id="getDeptAndEmpByStepTwo" resultType="Emp">
+        select * from t_emp where emp_id = #{empId}
+    </select>
+
+</mapper>

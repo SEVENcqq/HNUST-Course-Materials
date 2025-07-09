@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<div>
+    <h1>首页！！！</h1>
+    <input type="button" value="测试SpringMVC处理ajax" @click="testAjax()"/>
+    <hr>
+    <a th:href="@{/test/down}">下载图片</a><br/>
+    <form th:action="@{/test/up}" method="post" enctype="multipart/form-data">
+        图片：<input type="file" name="photo"><br/>
+        <input type="submit" th:value="上传">
+    </form>
+</div>
+
+<script type="text/javascript" th:src="@{/js/vue.js}"></script>
+<script type="text/javascript" th:src="@{/js/axios.min.js}"></script>
+<script type="text/javascript">
+    var vue = new Vue({
+        el:"#app",
+        methods:{
+            testAjax(){
+                axios({
+                    url:"",
+                    method:"",
+                    param:{},
+                    data:{}
+                }).then(response=>{
+                    console.log(response.data);
+                });
+            }
+        }
+        });
+</script>
+</body>
+</html>

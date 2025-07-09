@@ -1,0 +1,17 @@
+编译单个文件...
+--------
+- 文件名: D:\CompileSoftware\Dev-C+++5.9.2+便携版\OS\test5\main.cpp
+- 编译器名: TDM-GCC 4.8.1 64-bit Release
+
+处理 C++ 源文件...
+--------
+- C++ 编译器: %BinDir0%\g++.exe
+- 命令: g++.exe "D:\CompileSoftware\Dev-C+++5.9.2+便携版\OS\test5\main.cpp" -o "D:\CompileSoftware\Dev-C+++5.9.2+便携版\OS\test5\main.exe" -g3 -I"%CppIncludeDir0%" -I"%CppIncludeDir1%" -I"%CppIncludeDir2%" -I"%CppIncludeDir2%\c++" -L"%LibDir0%" -L"%LibDir1%" -static-libgcc -lshlwapi -g3
+
+编译结果...
+--------
+- 错误: 0
+- 警告: 0
+- 输出文件名: D:\CompileSoftware\Dev-C+++5.9.2+便携版\OS\test5\main.exe
+- 输出大小: 2.65890884399414 MiB
+- 编译时间: 0.91s

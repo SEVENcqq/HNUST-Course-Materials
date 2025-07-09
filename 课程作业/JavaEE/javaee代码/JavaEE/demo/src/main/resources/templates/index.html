@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传demo</title>
+    <link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.6/css/layui.css" media="all">
+    <script src="https://www.layuicdn.com/layui-v2.5.6/layui.js " charset="utf-8"></script>
+    <style>
+        .layui-upload-list {
+            width: 92px;
+            height: 92px;
+            border: 2px solid #EFEFEF;
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .layui-upload-img {
+            width: 92px;
+            height: 92px;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: center;margin-top: 100px">
+    <div class="layui-upload">
+        <button type="button" class="layui-btn" id="test1">上传图片</button>
+        <button type="button" class="layui-btn" id="test2">上传文件</button>
+        <div class="layui-upload-list">
+            <img class="layui-upload-img"  id="demo1">
+            <p id="demoText"></p>
+        </div>
+    </div>
+    <div>
+        文件访问路径为: <a id="href" target="_blank" style="color: aqua" ></a>
+    </div>
+</div>
+<script>
+    layui.use(['upload', 'element', 'layer'], function() {
+        var $ = layui.jquery, upload = layui.upload, element = layui.element, layer = layui.layer;
+        //常规使用 - 普通图片上传
+        upload.render({
+            elem: '#test1'
+            , url: 'http://localhost:8080/upload' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
+            , done: function (res) {
+                console.log("res",res);
+                //如果上传失败
+                if (res.code != "200") {
+                    return layer.msg('上传失败');
+                }
+                //
+                $('#demo1').attr('src',  res.data);
+                $("#href").attr('href',res.data);
+                $("#href").text("http://localhost:8080/" + res.data);
+                return layer.msg('上传成功');
+            }
+        });
+        upload.render({
+            elem: '#test2'
+            , url: 'http://localhost:8080/upload' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
+            ,accept: 'file' //比图片多加了一个accept
+            , done: function (res) {
+                console.log("res",res);
+                //如果上传失败
+                if (res.code != "200") {
+                    return layer.msg('上传失败');
+                }
+                //
+                $("#href").attr('href',res.data);
+                $("#href").text("http://localhost:8080/" + res.data);
+                return layer.msg('上传成功');
+            }
+        })
+    });
+</script>
+</body>
+</html>

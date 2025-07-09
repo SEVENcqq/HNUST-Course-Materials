@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #63a4ff, #83eaf1);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #74a5f8;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+			margin-top: 10px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-link {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .login-link a {
+            color: #0072ff;
+            text-decoration: none;
+        }
+    </style>
+	<script>
+        function validateForm() {
+            var newUsername = document.getElementById("newUsername").value;
+            var newPassword = document.getElementById("newPassword").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var email = document.getElementById("email").value;
+
+            // 验证用户名、密码和邮箱规则
+            var usernameRegex = /^[a-zA-Z0-9_]{6,}$/;
+            var passwordRegex = /^.{8,}$/;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!usernameRegex.test(newUsername)) {
+                alert("Invalid username. Please check the requirements.");
+                return false;
+            }
+
+            if (!passwordRegex.test(newPassword)) {
+                alert("Invalid password. Please check the requirements.");
+                return false;
+            }
+
+            if (newPassword !== confirmPassword) {
+                alert("Passwords do not match. Please confirm your password.");
+                return false;
+            }
+
+            if (!emailRegex.test(email)) {
+                alert("Invalid email. Please check the requirements.");
+                return false;
+            }
+
+            // 在这里可以添加实际的注册逻辑，例如跳转至login.html
+            // 这里仅作演示，返回true表示验证通过
+            window.location.href = "http://127.0.0.1:8000/login.html";
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form id="registerForm" onsubmit="return validateForm()">
+        <div class="logo">
+            HNUST
+        </div>
+		
+        <label for="newUsername">New Username</label>
+        <input type="text" id="newUsername" name="newUsername" placeholder="please enter your username" required>
+
+        <label for="newPassword">New Password</label>
+        <input type="password" id="newPassword" name="newPassword" placeholder="please enter your password" required>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="please enter your confirmPassword" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="please enter your email" required>
+
+        <button type="submit">Register</button>	
+		<div class="login-link">
+			<a href="http://127.0.0.1:8000/login.html">Already have an account? Login here</a>
+		</div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hnust.mybatis.mapper.SpecialMapper">
+
+    <!--List<User> getUserByLike(@Param("like") String like);-->
+    <!--  '%${like}%'  -->
+    <!--  concat('%',#{like},'%')  -->
+    <!--  "%"#{like}"%" 最常用，重点掌握  -->
+    <select id="getUserByLike" resultType="User">
+        select * from t_user where username like "%"#{like}"%"
+    </select>
+
+    <!--void deleteMoreUser(@Param("ids") String ids);-->
+    <delete id="deleteMoreUser">
+        delete from t_user where id in (${ids})
+    </delete>
+
+    <!--List<User> getUserList(@Param("tableName") String tablename);-->
+    <!--只能使用${}，因为表名不能加单引号-->
+    <select id="getUserList" resultType="User">
+        select * from ${tableName}
+    </select>
+
+   <!-- void insertUser(User user);-->
+    <!--在mapper.xml中设置两个属性
+    - useGeneratedKeys：设置使用自增的主键
+    - keyProperty：因为增删改有统一的返回值是受影响的行数，
+      因此只能将获取的自增的主键放在传输的参数user对象的某个属性中-->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user values(null,#{username},#{password},#{age},#{gender},#{email})
+    </insert>
+
+</mapper>

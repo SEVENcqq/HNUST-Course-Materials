@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .container {
+        width: 100vw;
+        height: 100vh;
+        background: url(../../static/imgs/背景14.jpg) no-repeat center center;
+        display: flex; /*想要登录框居中，则需要此层采用弹性布局 */
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+      }
+      .register {
+        width: 500px;
+        height: 450px;
+        /*background: rgba(255, 255, 255, 0.2); /*背景颜色加上透明度,可有可无*/
+        border-left: 2px solid rgba(255, 255, 255, 0.7); /*边框颜色*/
+        border-top: 2px solid rgba(255, 255, 255, 0.7);
+        border-radius: 20px; /*边框弧度*/
+        backdrop-filter: blur(10px); /*模糊度*/
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8); /*盒子边框阴影*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .txtbox > * {
+        display: block;
+      }
+      .txtbox input {
+        width: 300px;
+        height: 36px;
+        outline: none;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        border: 0;
+        font-size: 16px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        background-color: #fff;
+      }
+      .txtbox h3 {
+        color: #fff;
+        font-size: 32px;
+      }
+      .txtbox input[type="submit"] {
+        color: #fff;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      .txtbox img {
+        float: right;
+        margin-right: 0px;
+        width: 120px;
+        height: 38px;
+      }
+      .txtbox span {
+        /*错误提示errorMsg*/
+        font-size: 20px;
+        position: relative;
+        bottom: 32px;
+        left: 180px;
+        color: orangered;
+      }
+      #returnLogin {
+          text-decoration: none;
+          color: white;
+          float:right;
+      }
+    </style>
+    <script type="text/javascript" th:src="@{/static/js/jquery-1.7.2.js}"></script>
+    <script type="text/javascript">
+      $(function () {
+        // 给注册绑定单击事件
+        $("#register").click(function () {
+          // 验证用户名：必须由字母，数字下划线组成，并且长度为5到12位
+          var usernameText = $("#username").val();
+          var usernamePatt = /^\w{4,12}$/;
+          if (!usernamePatt.test(usernameText)) {
+            $("span.errorMsg").text("用户名不合法！");
+            return false;
+          }
+
+          var passwordText = $("#password").val();
+          var passwordPatt = /^\w{5,12}$/;
+          if (!passwordPatt.test(passwordText)) {
+            $("span.errorMsg").text("密码不合法！");
+            return false;
+          }
+
+          // 验证确认密码：和密码相同
+          var repwdText = $("#repwd").val();
+          if (repwdText != passwordText) {
+            $("span.errorMsg").text("确认密码和密码不一致！");
+            return false;
+          }
+
+          // 邮箱验证：xxxxx@xxx.com
+          var emailText = $("#email").val();
+          var emailPatt = /^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/;
+          if (!emailPatt.test(emailText)) {
+            $("span.errorMsg").text("邮箱格式不合法！");
+            return false;
+          }
+
+          // 验证码
+          var codeText = $("#code").val();
+          codeText = $.trim(codeText);
+          if (codeText == null || codeText == "") {
+            $("span.errorMsg").text("验证码不能为空！");
+            return false;
+          }
+          // 去掉错误信息
+          $("span.errorMsg").text("");
+        });
+
+      });
+      function refresh() {
+          document.getElementById('captcha_img').src="kaptcha.jpg?"+Math.random();
+      }
+    </script>
+</head>
+<body>
+    <!--整体背景盒子-->
+    <form th:action="@{/register}" method="post">
+        <div class="container">
+            <div class="register">
+                <div class="txtbox">
+                  <div>
+                      <h3>欢迎注册</h3>
+                      <span class="errorMsg" th:text="${msg}"></span>
+                  </div>
+                  <div>
+                      <input type="text" placeholder="请输入用户名" name="username" id="username" autocomplete="off" th:value="${username}"/>
+                  </div>
+                  <div>
+                      <input type="password" placeholder="请输入密码" name="password" id="password" autocomplete="off" th:value="${password}"/>
+                  </div>
+                  <div>
+                      <input type="password" placeholder="请输入确认密码" name="repwd" id="repwd" autocomplete="off" th:value="${password}"/>
+                  </div>
+                  <div>
+                      <input type="text" placeholder="请输入邮箱" name="email" id="email" autocomplete="off" th:value="${email}"/>
+                  </div>
+                  <div>
+                      <input type="text" placeholder="请输入验证码" name="code" style="width: 165px;" id="code"/>
+                      <img id="captcha_img" alt="点击更换" th:title="点击更换" src="kaptcha.jpg" onclick="refresh()"/>
+                  </div>
+                  <div>
+                      <input type="submit" value="注册" id="register"/>
+                  </div>
+                  <div>
+                      <a id="returnLogin" th:href = "@{/toLogin}">返回登录界面</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

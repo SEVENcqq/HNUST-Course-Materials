@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>school_list</title>
+    <link href="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../../static/js/jquery-1.7.2.js"></script>
+    <script src="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script>
+    function logout(){
+      var result;
+      result = confirm("确定退出？");
+      if(result === true){
+        alert("退出成功！");
+        return true;
+      } else {
+        event.preventDefault(); // 取消默认应答
+        return false;
+      }
+    }
+  </script>
+    <style>
+      .head{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+      #search{
+        display: flex;
+        justify-content: center;
+        /*margin-right: 40px;
+        margin-left: 40px;*/
+      }
+      .logout{
+        margin-left: 15px;
+        margin-top: 5px;
+      }
+      .user{
+        position: relative;
+        top: 20px;
+        left: 50px;
+      }
+      .stab{
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+    </style>
+</head>
+<body>
+
+<!--用户头像与姓名-->
+<div class="user">
+  <div class="header">
+    <h2 class="ui header">
+      <img src="../../img/head/头像.png" class="ui circular image">
+      <span th:text="${username}"></span>
+    </h2>
+  </div>
+  <div class="logout">
+    <a onclick="logout()" th:href="@{/logout}">注销</a>
+  </div>
+</div>
+<!--标题位置-->
+<br/>
+<div>
+  <div class="head">
+    <h1 class="ui header" style="position: center">
+      <i class="paper plane icon"></i>
+      <div class="content">学院信息</div>
+    </h1>
+  </div>
+  <!--<div class="search">
+    <div class="ui fluid category search">
+      <div class="ui icon input">
+        <input class="prompt" type="text" placeholder="查找课程或学院">
+        <i class="search icon"></i>
+      </div>
+      <div class="results"></div>
+    </div>
+  </div>-->
+</div>
+<div id="search" style="margin-bottom: -20px;">
+  <!--<form class="ui form" th:action="@{'/searchCourse/' + ${spageNum} + '/' + ${username} }" method="post">-->
+  <form class="ui form" th:action="@{'/searchCourse/1/' + ${username} + '/' + ${spageNum} }" method="post">
+    <div class="four fields">
+      <div class="field">
+        <input type="text" name="cid" placeholder="课程号">
+      </div>
+      <div class="field">
+        <input type="text" name="cname" placeholder="课程名">
+      </div>
+      <div class="field">
+        <input type="text" name="hours" placeholder="课时">
+      </div>
+      <div class="field">
+        <input type="submit" class="ui icon button" value="搜索" style="height: 40px;">
+      </div>
+    </div>
+  </form>
+</div>
+
+<h3 class="ui dividing header"></h3>
+<!--课程展示框-->
+<div class="stab">
+  <table class="ui selectable celled table">
+    <thead>
+    <tr>
+      <th>学院号</th>
+      <th>学院名</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="school : ${spage.list}">
+      <td th:text="${school.sid}"></td>
+      <td th:text="${school.sname}"></td>
+      <td>
+        <a class="ui violet basic button" th:href="@{'/getCourseBySid/' + ${spage.pageNum} + '/' + ${school.sid} + '/1/' + ${username} }">查看课程信息</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br/>
+<!--分页-->
+<div id="page" style="text-align: center;">
+  <a th:if="${spage.hasPreviousPage}" th:href="@{'/getAllSchool/1' + '/' + ${username} }">首页</a>
+  <a th:if="${spage.hasPreviousPage}" th:href="@{'/getAllSchool/' + ${spage.prePage} + '/' + ${username}}">上一页</a>
+  <span th:each="num : ${spage.navigatepageNums}">
+    <a th:if="${spage.pageNum==num}"
+       th:href="@{'/getAllSchool/' + ${num} + '/' + ${username}}" th:text="'['+${num}+']'" style="color:darkorange;"></a>
+    <a th:if="${spage.pageNum!=num}" th:href="@{'/getAllSchool/' + ${num} + '/' + ${username}}" th:text="${num} "></a>
+  </span>
+  <a th:if="${spage.hasNextPage}" th:href="@{'/getAllSchool/' + ${spage.nextPage} + '/' + ${username}}">下一页</a>
+  <a th:if="${spage.hasNextPage}" th:href="@{'/getAllSchool/' + ${spage.pages} + '/' + ${username}}">末页</a>
+</div>
+<script>
+
+</script>
+</body>
+</html>

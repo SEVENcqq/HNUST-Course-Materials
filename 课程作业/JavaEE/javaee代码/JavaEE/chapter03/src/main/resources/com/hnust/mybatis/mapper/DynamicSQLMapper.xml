@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hnust.mybatis.mapper.DynamicSQLMapper">
+    <!--根据条件查询员工信息-->
+
+    <!--if标签可通过test属性（即传递过来的数据）的表达式进行判断，
+    若表达式的结果为true，则标签中的内容会执行；反之标签中的内容不会执行-->
+
+    <!--List<Emp> getEmpByCondition(Emp emp);-->
+    <select id="getEmpByIf" resultType="Emp">
+        select * from t_emp where 1=1
+        <if test="empName != null and empName != ''">
+            and emp_name = #{empName}
+        </if>
+        <if test="age != null and age != ''">
+            and age = #{age}
+        </if>
+        <if test="gender != null and gender != ''">
+            and gender = #{gender}
+        </if>
+    </select>
+
+    <!--List<Emp> getEmpByChoose(Emp emp);-->
+    <select id="getEmpByChoose" resultType="Emp">
+        select * from t_emp where 1=1
+        <choose>
+            <when test="empName != null and empName != ''">
+                and emp_name like "%"#{empName}"%"
+            </when>
+            <when test="empId != null and empId != ''">
+                and emp_id = #{empId}
+            </when>
+            <otherwise>
+                and emp_name is not null
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--List<Emp> getEmpByWhere(Emp emp);-->
+    <select id="getEmpByWhere" resultType="Emp">
+        select * from t_emp
+        <where>
+            <if test="empName != null and empName != ''">
+                and emp_name = #{empName}
+            </if>
+            <if test="age != null and age != ''">
+                and age = #{age}
+            </if>
+            <if test="gender != null and gender != ''">
+                and gender = #{gender}
+            </if>
+        </where>
+    </select>
+
+    <!--List<Emp> getEmpByTrim(Emp emp);-->
+    <select id="getEmpByTrim" resultType="Emp">
+        select * from t_emp
+        <trim prefix="where" prefixOverrides="and">
+            <if test="empName != null and empName != ''">
+                and emp_name = #{empName}
+            </if>
+            <if test="age != null and age != ''">
+                and age = #{age}
+            </if>
+            <if test="gender != null and gender != ''">
+                and gender = #{gender}
+            </if>
+        </trim>
+    </select>
+
+    <!--void updateEmpBySet(Emp emp);-->
+    <update id="updateEmpBySet">
+        update t_emp
+        <set>
+            <if test="empName != null and empName != ''">
+                emp_name = #{empName} ,
+            </if>
+            <if test="age != null and age != ''">
+                age = #{age} ,
+            </if>
+            <if test="gender != null and gender != ''">
+                gender = #{gender} ,
+            </if>
+        </set>
+        where emp_id = #{empId}
+    </update>
+
+    <!--List<Emp> getEmpByArray(Emp emp);-->
+    <select id="getEmpByArray" resultType="Emp">
+        select * from t_emp where emp_id in
+        <foreach collection="array" index="index" separator="," item="id" close=")" open="(">
+            ${id}
+        </foreach>
+    </select>
+
+    <!--List<Emp> getEmpByList(List ids);-->
+    <select id="getEmpByList" resultType="Emp">
+        select * from t_emp where emp_id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            ${id}
+        </foreach>
+    </select>
+
+    <!--List<Emp> getEmpByMap(Map conditionMap);-->
+    <select id="getEmpByMap" resultType="Emp">
+        select * from t_emp where gender = #{gender} and emp_id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            ${id}
+        </foreach>
+    </select>
+
+    <!--List<Emp> getEmpBySql(@Param("like") String like);-->
+    <sql id="empColumns">
+        emp_id,emp_name,gender
+    </sql>
+    <select id="getEmpBySql" resultType="Emp">
+        select <include refid="empColumns"/> from t_emp
+        where emp_name like "%"#{like}"%"
+    </select>
+
+</mapper>

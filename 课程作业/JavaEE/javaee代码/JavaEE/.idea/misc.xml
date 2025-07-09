@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/chapter10" />
+    <file type="web" url="file://$PROJECT_DIR$/chapter11" />
+    <file type="web" url="file://$PROJECT_DIR$/chapter12" />
+    <file type="web" url="file://$PROJECT_DIR$/chapter13" />
+    <file type="web" url="file://$PROJECT_DIR$/mybatis_mbg" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_mvc_ajax" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_mvc_demo" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_mvc_rest" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm" />
+    <file type="web" url="file://$PROJECT_DIR$/test1Plus" />
+    <file type="web" url="file://$PROJECT_DIR$/test2" />
+    <file type="web" url="file://$PROJECT_DIR$/test2P" />
+    <file type="web" url="file://$PROJECT_DIR$/test2Plus" />
+    <file type="web" url="file://$PROJECT_DIR$/untitled" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/chapter06/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter07/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter08/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter01/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter2-1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter02-1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter02-2/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter02-3/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter03/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter10/pom.xml" />
+        <option value="$PROJECT_DIR$/test1/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter11/pom.xml" />
+        <option value="$PROJECT_DIR$/test1Plus/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter12/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter13/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis_mbg/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_ioc_xml/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_ioc_annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/chapter09/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mvc_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mvc_rest/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mvc_ajax/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm/pom.xml" />
+        <option value="$PROJECT_DIR$/test2/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

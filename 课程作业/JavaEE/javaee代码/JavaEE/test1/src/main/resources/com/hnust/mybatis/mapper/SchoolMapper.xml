@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hnust.mybatis.mapper.SchoolMapper">
+
+    <!--School selectCourseBySchoolName(@Param("name") String name);-->
+    <resultMap id="selectCourseBySchoolNameMap" type="School">
+        <id column="sid" property="sid"></id>
+        <result column="school_name" property="sname"></result>
+        <collection property="courses" ofType="Course">
+            <id column="cid" property="cid"></id>
+            <result column="cname" property="cname"></result>
+            <result column="hours" property="hours"></result>
+            <result column="schools" property="schools"></result>
+            <result column="cpath" property="cpath"></result>
+            <result column="cinf" property="cinf"></result>
+        </collection>
+    </resultMap>
+    <select id="selectCourseBySchoolName" resultMap="selectCourseBySchoolNameMap">
+        select * from s_school , c_course
+        where s_school.sid = c_course.schools
+        and s_school.school_name = #{sname}
+    </select>
+
+    <!--List<School> selectAllSchool();-->
+    <resultMap id="selectAllSchoolMap" type="School">
+        <id column="sid" property="sid"></id>
+        <result column="school_name" property="sname"></result>
+        <collection property="courses" ofType="Course">
+            <id column="cid" property="cid"></id>
+            <result column="cname" property="cname"></result>
+            <result column="hours" property="hours"></result>
+            <result column="schools" property="schools"></result>
+            <result column="cpath" property="cpath"></result>
+            <result column="cinf" property="cinf"></result>
+        </collection>
+    </resultMap>
+    <select id="selectAllSchools" resultMap="selectAllSchoolMap">
+        select * from s_school, c_course
+        where s_school.sid = c_course.schools
+    </select>
+
+</mapper>

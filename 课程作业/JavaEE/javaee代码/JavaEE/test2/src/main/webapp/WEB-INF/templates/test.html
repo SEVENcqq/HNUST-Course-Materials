@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  <link href="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+
+  <script type="text/javascript" src="../../static/js/jquery-1.7.2.js"></script>
+  <!--<script src="../../static/js/semantic.min.js"></script>-->
+  <script src="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.js">
+
+  </script>
+  <style>
+    .f{
+      margin-left: 15px;
+      margin-top: 10px;
+      margin-right: 15px;
+    }
+    #box{
+      box-sizing: initial;
+      width: 100px;
+    }
+  </style>
+
+</head>
+<body>
+
+<!--<div class="ui inverted segment">
+  <p></p>
+  <div class="ui inverted divider"></div>
+  <p></p>
+  <h4 class="ui horizontal inverted divider">
+    Horizontal
+  </h4>
+</div>-->
+<div class="ui card">
+  <div class="image">
+    <img src="../../img/背景13.jpg">
+  </div>
+  <div class="content">
+    <div class="header">课程名</div>
+    <div class="description">
+      一些乱七八糟的课程描述
+    </div>
+  </div>
+  <div class="ui two bottom attached buttons">
+    <div class="ui button">
+      <i class="add icon"></i>
+      选择文件
+    </div>
+    <div class="ui primary button">
+      <i class="arrow up icon"></i>
+      上传
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<!--<div class="ui tiny modal">
+  <div class="header">提示</div>
+  <div class="content">
+    <p>确定删除？</p>
+  </div>
+  <div class="actions">
+    <div class="ui approve positive basic button">
+      <i class="check icon"></i>确定
+    </div>
+    <div class="ui cancel negative basic button">
+      <i class="close icon"></i>取消
+    </div>
+  </div>
+</div>-->
+
+
+
+  <button id="delete"  class="ui red basic button" >删除</button>
+
+<div id="box">
+  <div class="ui mini modal">
+    <div class="header">提示</div>
+    <p>hhh</p>
+    <div class="actions">
+      <div class="ui approve positive basic button">
+        <i class="check icon"></i>确定
+      </div>
+      <div class="ui cancel negative basic button">
+        <i class="close icon"></i>取消
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/>
+<br/>
+
+<div style="align-self: center">
+  <div style="display: inline-block">
+    <div class="ui special cards">
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <div class="ui primary button">添加好友</div>
+              </div>
+            </div>
+          </div>
+          <img src="../../img/背景13.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Team Hess</a>
+          <div class="meta">
+            <span class="date">Created in Aug 2014</span>
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="users icon"></i>
+            2 Members
+          </a>
+        </div>
+        <div class="ui bottom attached button"><i class="add icon"></i> 添加好友 </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="aform" style="display: inline-block; margin-left: 20px">
+    <div class="ui equal width form">
+      <div class="fields">
+        <div class="field">
+          <label>Username</label>
+          <input type="text" placeholder="Username">
+        </div>
+      </div>
+      <div class="fields">
+        <div class="field">
+          <label>First name</label>
+          <input type="text" placeholder="First Name">
+        </div>
+      </div>
+      <div class="fields">
+        <div class="field">
+          <label>First name</label>
+          <input type="text" placeholder="First Name">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<a href="" οnclick="go(this)" th:attr="data-url=${blog.id}" class="ui mini red basic button">删除</a>
+<div class="ui form">
+  <div class="field">
+    <label>Name</label>
+    <div class="two fields">
+      <div class="field">
+        <input type="text" name="shipping[first-name]" placeholder="First Name">
+      </div>
+      <div class="field">
+        <input type="text" name="shipping[last-name]" placeholder="Last Name">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--<div class="ui left demo vertical inverted sidebar labeled icon menu">
+  <a class="item">
+    <i class="user icon"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="block layout icon"></i>
+    Topics
+  </a>
+  <a class="item">
+    <i class="mail icon"></i>
+    Friends
+  </a>
+</div>-->
+<script>
+  /*$('.ui.labeled.icon.sidebar')
+          .sidebar('toggle')
+  ;*/
+
+  /*$(function(){
+    $("#delete").click(function(){
+      $('.ui.tiny.modal').modal('show');
+    });
+  });*/
+  $(function(){
+    $("#delete").click(function(){
+      var result = $('.ui.mini.modal').modal('show');
+    });
+  });
+  function del(){
+
+      $('.ui.mini.modal').modal('show');
+
+  }
+</script>
+
+</body>
+</html>

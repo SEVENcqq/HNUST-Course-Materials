@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/chapter02-1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter02-1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter02-2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter02-2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter02-3/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter02-3/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter03/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter03/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter06/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter06/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter07/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter07/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter08/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter08/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter09/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter09/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter10/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter10/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter11/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter11/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter12/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter12/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter13/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chapter13/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis_mbg/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis_mbg/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_ioc_annotation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_ioc_annotation/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_ioc_xml/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_ioc_xml/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_mvc_ajax/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_mvc_ajax/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_mvc_demo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_mvc_demo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_mvc_rest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring_mvc_rest/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ssm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ssm/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test1Plus/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test1Plus/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test2P/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test2P/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test2Plus/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test2Plus/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/untitled/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/untitled/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

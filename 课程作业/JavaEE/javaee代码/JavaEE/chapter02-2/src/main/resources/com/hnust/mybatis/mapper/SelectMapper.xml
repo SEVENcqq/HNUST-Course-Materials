@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hnust.mybatis.mapper.SelectMapper">
+
+    <!--User getUserById(@Param("id") Integer id);-->
+    <select id="getUserById" resultType="User">
+        select * from t_user where id = #{id}
+    </select>
+
+    <!--List<User> getAllUser();-->
+    <select id="getAllUser" resultType="User">
+        select * from t_user
+    </select>
+
+    <!--Integer getCount();-->
+    <!--在MyBatis中，对于Java中常用的类型都设置了类型别名
+    * 例如：java.lang.Integer&ndash;&gt;int|integer
+    * 例如：int&ndash;&gt;_int|_integer
+    * 例如：Map&ndash;&gt;map,List&ndash;&gt;list-->
+    <select id="getCount" resultType="int">
+        select count(*) from t_user
+    </select>
+
+    <!--Map<String , Object> getUserByIdToMap(@Param("id") Integer id);-->
+    <select id="getUserByIdToMap" resultType="map">
+        select * from t_user where id = #{id}
+    </select>
+
+    <!--List<Map<String , Object>> getAllUserToMap();-->
+    <!--
+    * 查询所有用户信息为map集合
+    * @return
+    * 将表中的数据以map集合的方式查询，一条数据对应一个map；若有多条数据，就会产生多个map集合，此时可以将这些map放在一个list集合中获取
+    -->
+    <select id="getAllUserToMap" resultType="map">
+        select * from t_user
+    </select>
+
+    <!--Map<String , Object> getAllUserToMap2();-->
+    <!--
+    * 查询所有用户信息为map集合
+    * @return
+    * 将表中的数据以map集合的方式查询，一条数据对应一个map；若有多条数据，就会产生多个map集合，并且最终要以一个map的方式返回数据，此时需要通过@MapKey注解设置map集合的键，值是每条数据所对应的map集合
+    -->
+    <select id="getAllUserToMap2" resultType="map">
+        select * from t_user
+    </select>
+
+</mapper>
